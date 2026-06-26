@@ -39,13 +39,13 @@
 	proc/do_heal_message(var/mob/user, var/mob/target, amount)
 		switch(amount)
 			if (1 to 8)
-				target.visible_message(SPAN_ALERT("<B>[user] heals [target] mending [his_or_her(target)] wounds!</B>"))
+				target.visible_message(SPAN_ALERT("<B>[user] heals [target] slightly!</B>"))
 			if (9 to 15)
-				target.visible_message(SPAN_ALERT("<B>[user] heals [target] with the power of Christ!</B>"))
+				target.visible_message(SPAN_ALERT("<B>[user] heals [target]!</B>"))
 			if (16 to 24)
-				target.visible_message(SPAN_ALERT("<B>[user] heals [target] by the will of the LORD!</B>"))
+				target.visible_message(SPAN_ALERT("<B>[user] heals [target] moderately!</B>"))
 			if (25 to INFINITY)
-				target.visible_message(SPAN_ALERT("<B>[user] heals [target] in service of heaven!</B>"))
+				target.visible_message(SPAN_ALERT("<B>[user] heals [target] greatly!</B>"))
 
 	proc/bless(mob/M as mob, var/mob/user)
 		if (isvampire(M) || isvampiricthrall(M) || iswraith(M) || M.bioHolder.HasEffect("revenant"))
@@ -303,3 +303,23 @@
 				user.show_text("You hide [W] in \the [src].", "blue")
 				return
 		..()
+
+/obj/item/bible/quran
+	name = "quran"
+	desc = "A copy of the Quran. Someone seems to have hollowed it out for hiding things in."
+	icon_state = "quran"
+
+/obj/item/bible/sutra
+	name = "tripitaka"
+	desc = "A collection of Buddhist texts. Someone seems to have hollowed it out for hiding things in."
+	icon_state = "sutra"
+
+/obj/item/bible/laozi
+	name = "tao Te Ching"
+	desc = "The old master's teachings. Someone seems to have hollowed it out for hiding things in."
+	icon_state = "laozi"
+
+/obj/item/bible/veda
+	name = "veda"
+	desc = "One of the vedas. Someone seems to have hollowed it out for hiding things in."
+	icon_state = "veda"

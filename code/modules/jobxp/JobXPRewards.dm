@@ -757,3 +757,89 @@ ABSTRACT_TYPE(/datum/jobXpReward/ai)
 	name = "AI Core Frame - Rustic"
 	desc = "Replaces your AI core with a much, much older model."
 	aiskin = "rustic"
+
+//////////////Chaplain/////////////////
+
+/datum/jobXpReward/chaplainquran
+	name = "Quran"
+	required_levels = list("Chaplain"=0)
+	icon_state = "?"
+	claimable = 1
+	claimPerRound = 1
+	var/sacrifice_path = /obj/item/bible
+	var/reward_path = /obj/item/bible/quran
+
+	activate(var/client/C)
+		var/holybook = C.mob.find_type_in_hand(/obj/item/bible)
+
+		if(!(holybook))
+			boutput(C.mob, "You need to be holding your Bible to claim this item.")
+			return
+		var/obj/item/I = new reward_path()
+		I.set_loc(get_turf(C.mob))
+		C.mob.put_in_hand_or_drop(I)
+		qdel(holybook)
+		boutput(C.mob, "The text of the book changes!")
+
+/datum/jobXpReward/chaplainsutra
+	name = "Sutra"
+	required_levels = list("Chaplain"=0)
+	icon_state = "?"
+	claimable = 1
+	claimPerRound = 1
+	var/sacrifice_path = /obj/item/bible
+	var/reward_path = /obj/item/bible/sutra
+
+	activate(var/client/C)
+		var/holybook = C.mob.find_type_in_hand(/obj/item/bible)
+
+		if(!(holybook))
+			boutput(C.mob, "You need to be holding your Bible to claim this item.")
+			return
+		var/obj/item/I = new reward_path()
+		I.set_loc(get_turf(C.mob))
+		C.mob.put_in_hand_or_drop(I)
+		qdel(holybook)
+		boutput(C.mob, "The text of the book changes!")
+
+/datum/jobXpReward/chaplainlaozi
+	name = "Tao Te Ching"
+	required_levels = list("Chaplain"=0)
+	icon_state = "?"
+	claimable = 1
+	claimPerRound = 1
+	var/sacrifice_path = /obj/item/bible
+	var/reward_path = /obj/item/bible/laozi
+
+	activate(var/client/C)
+		var/holybook = C.mob.find_type_in_hand(/obj/item/bible)
+
+		if(!(holybook))
+			boutput(C.mob, "You need to be holding your Bible to claim this item.")
+			return
+		var/obj/item/I = new reward_path()
+		I.set_loc(get_turf(C.mob))
+		C.mob.put_in_hand_or_drop(I)
+		qdel(holybook)
+		boutput(C.mob, "The text of the book changes!")
+
+/datum/jobXpReward/chaplainveda
+	name = "Veda"
+	required_levels = list("Chaplain"=0)
+	icon_state = "?"
+	claimable = 1
+	claimPerRound = 1
+	var/sacrifice_path = /obj/item/bible
+	var/reward_path = /obj/item/bible/veda
+
+	activate(var/client/C)
+		var/holybook = C.mob.find_type_in_hand(/obj/item/bible)
+
+		if(!(holybook))
+			boutput(C.mob, "You need to be holding your Bible to claim this item.")
+			return
+		var/obj/item/I = new reward_path()
+		I.set_loc(get_turf(C.mob))
+		C.mob.put_in_hand_or_drop(I)
+		qdel(holybook)
+		boutput(C.mob, "The text of the book changes!")
