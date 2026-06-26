@@ -304,11 +304,6 @@
 				return
 		..()
 
-/obj/item/bible/quran
-	name = "quran"
-	desc = "A copy of the Quran. Someone seems to have hollowed it out for hiding things in."
-	icon_state = "quran"
-
 /obj/item/bible/sutra
 	name = "tripitaka"
 	desc = "A collection of Buddhist texts. Someone seems to have hollowed it out for hiding things in."
