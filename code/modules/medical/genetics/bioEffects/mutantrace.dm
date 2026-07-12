@@ -186,7 +186,7 @@
 	can_scramble = 0
 	curable_by_mutadone = 0
 	reclaim_fail = 100
-	icon_state  = "monkey"
+	icon_state  = "seamonkey"
 
 	gorilla //reward if someone gets a gorilla in a scanner somehow
 		id = "seamonkey-loot"

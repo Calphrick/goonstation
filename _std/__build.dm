@@ -30,9 +30,9 @@ o+`        `-` ``..-:yooos-..----------..`
 
 //------------ OPTIONS TO GO FAST ------------//
 
-//#define GOTTA_GO_FAST_BUT_ZLEVELS_TOO_SLOW 1  // Only include the tiny map Devtest, no other zlevels. Boots way faster
+#define GOTTA_GO_FAST_BUT_ZLEVELS_TOO_SLOW 1  // Only include the tiny map Devtest, no other zlevels. Boots way faster
 
-//#define IM_REALLY_IN_A_FUCKING_HURRY_HERE 1  // All of the below
+#define IM_REALLY_IN_A_FUCKING_HURRY_HERE 1  // All of the below
 
 //#define SKIP_FEA_SETUP // Skip setting up atmospheric system
 //#define SKIP_Z5_SETUP // Skip generation of mining level
@@ -54,7 +54,7 @@ o+`        `-` ``..-:yooos-..----------..`
 //#define I_WANNA_DO_CRIME ROLE_TRAITOR // Spawn as the matching antagonist role as defined in _std\defines\roles.dm
 //#define NO_ADMIN_SPEECH_MODULES // Loads the admin speech and listen module trees without any modules.
 //#define NO_PREGAME_HTML // Don't spawn the HTML pregame browser lobby screen
-//#define I_HATE_WAITING_FOR_GENES // Marks nearly all genes as researched, gives chromosomes/materials/autodecryptors, increases gene storage cap, and removes time/cost limitations on the gene console
+#define I_HATE_WAITING_FOR_GENES // Marks nearly all genes as researched, gives chromosomes/materials/autodecryptors, increases gene storage cap, and removes time/cost limitations on the gene console
 
 //#define STOP_DISTRACTING_ME //All of the below
 
