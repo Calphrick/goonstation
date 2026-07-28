@@ -70,6 +70,10 @@ ABSTRACT_TYPE(/obj/item/cultweapons/ranged) //are we doing cult guns?
 	force = 12
 	w_class = W_CLASS_SMALL
 
+	New()
+		..()
+		src.setItemSpecial(/datum/item_special/double)
+
 // Blunt melee weapons
 
 /obj/item/cultweapons/melee/blunt
@@ -80,6 +84,10 @@ ABSTRACT_TYPE(/obj/item/cultweapons/ranged) //are we doing cult guns?
 	throwforce = 7
 	stamina_damage = 20
 	w_class = W_CLASS_NORMAL
+
+	New()
+		..()
+		src.setItemSpecial(/datum/item_special/swipe)
 
 /obj/item/cultweapons/melee/blunt/cult_pole
 	name = "decorated pole"
