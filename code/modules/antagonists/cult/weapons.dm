@@ -68,7 +68,6 @@ ABSTRACT_TYPE(/obj/item/cultweapons/ranged) //are we doing cult guns?
 	desc = "A scary-looking sickle, perfect for hooking into the flesh of potential sacrifices."
 	icon_state = "fragile_sword" //placeholder
 	force = 12
-	special_grab = /obj/item/grab/garrote_grab //This isn't working for some reason
 	w_class = W_CLASS_SMALL
 
 // Blunt melee weapons
