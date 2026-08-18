@@ -2532,3 +2532,39 @@ ABSTRACT_TYPE(/datum/projectile/bullet/homing/rocket)
 
 	on_launch(obj/projectile/O)
 		O.AddComponent(/datum/component/sniper_wallpierce, 3, 0, TRUE)
+
+/datum/projectile/bullet/mosin
+	name = "bullet"
+	damage = 80
+	icon_state = "sniper_bullet"
+	damage_type = D_PIERCING
+	armor_ignored = 0.66
+	hit_type = DAMAGE_STAB
+	implanted = /obj/item/implant/projectile/bullet_308
+	shot_sound = 'sound/weapons/railgun.ogg'
+	shot_volume = 50
+	dissipation_delay = 10
+	dissipation_rate = 0
+	projectile_speed = 72
+	max_range = 100
+	casing = /obj/item/casing/rifle_loud
+	impact_image_state = "bhole-small"
+
+	on_launch(obj/projectile/O)
+		O.AddComponent(/datum/component/sniper_wallpierce, 3, 20)
+
+	on_hit(atom/hit, dirflag, obj/projectile/P)
+		if (ismob(hit))
+			var/mob/M = hit
+			if(ishuman(hit))
+				var/mob/living/carbon/human/H = hit
+				if(power > 40)
+#ifdef USE_STAMINA_DISORIENT
+					H.do_disorient(50, knockdown = 2 SECONDS, stunned = 2 SECONDS, disorient = 0, remove_stamina_below_zero = FALSE)
+#else
+					H.changeStatus("stunned", 4 SECONDS)
+					H.changeStatus("knockdown", 3 SECONDS)
+#endif
+			var/turf/target = get_edge_target_turf(hit, dirflag)
+			M.throw_at(target, 1, 3, throw_type = THROW_GUNIMPACT)
+		..()

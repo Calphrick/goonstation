@@ -466,6 +466,20 @@
 	max_amount = 6
 	ammo_cat = AMMO_RIFLE_308
 
+/obj/item/ammo/bullets/mosin
+	sname = "7.62x54mmR"
+	name = "7.62x54mmR stripper clip"
+	desc = "An old stripper clip of 7.62x54mmR bullets. These fire too hot for most modern rifles!"
+	ammo_type = new/datum/projectile/bullet/mosin
+	icon = 'icons/obj/items/ammo.dmi'
+	icon_state = "mosin_clip-5"
+	amount_left = 5
+	max_amount = 5
+	ammo_cat = AMMO_RIFLE_762
+	icon_dynamic = 1
+	icon_short = "mosin_clip"
+	icon_empty = "mosin_clip_empty"
+
 /obj/item/ammo/bullets/tranq_darts
 	sname = ".308 Tranquilizer"
 	name = ".308 tranquilizer darts"

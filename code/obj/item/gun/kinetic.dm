@@ -3650,3 +3650,97 @@ ABSTRACT_TYPE(/obj/item/survival_rifle_barrel)
 	alter_projectile(obj/projectile/P)
 		. = ..()
 		P.proj_data.shot_sound = 'sound/weapons/long_barrel.ogg'
+
+//The bolt action parent and Mosin code are taken from @disturbherb's 35below project, used with permission
+#define BOLT_UNLOCKED FALSE
+#define BOLT_LOCKED TRUE
+
+ABSTRACT_TYPE(/obj/item/gun/kinetic/bolt_action) //Future addition: make the OHR under the bolt action parent?
+/obj/item/gun/kinetic/bolt_action
+	var/bolt_state = BOLT_LOCKED
+	var/cocked = TRUE
+	HELP_MESSAGE_OVERRIDE("{To cycle another round, the bolt must be unlocked to eject the previously fired cartridge and subsequently locked to \
+							load the next round. The bolt can be locked and unlocked by using the weapon in-hand.}")
+
+	update_icon()
+		. = ..()
+		if (src.bolt_state)
+			src.icon_state = "[initial(src.icon_state)]-lock"
+		else
+			src.icon_state = "[initial(src.icon_state)]-unlock"
+
+	canshoot(mob/user)
+		if (src.cocked)
+			return ..()
+		else
+			return FALSE
+
+	shoot_point_blank(atom/target, mob/user, second_shot)
+		if (!src.canshoot(user))
+			boutput(user, SPAN_ALERT("The weapon is not cocked!"))
+			return
+		. = ..()
+		src.cocked = FALSE
+		src.UpdateIcon()
+
+	shoot(turf/target, turf/start, mob/user, POX, POY, is_dual_wield, atom/called_target)
+		..()
+		src.cocked = FALSE
+		src.UpdateIcon()
+
+	attack_self(mob/user as mob)
+		..()
+		if (src.bolt_state)
+			if (src.cocked)
+				boutput(user, SPAN_ALERT("The weapon is still cocked!"))
+				return
+			boutput(user, SPAN_NOTICE("You pull the weapon's bolt back!"))
+			src.ejectcasings()
+			src.cocked = FALSE
+			playsound(src, 'sound/weapons/bolt-back.ogg', 60, TRUE)
+		else
+			boutput(user, SPAN_ALERT("You push the weapon's bolt forward!"))
+			src.cocked = TRUE
+			playsound(src, 'sound/weapons/bolt-forward.ogg', 60, TRUE)
+		src.bolt_state = !src.bolt_state
+		src.UpdateIcon()
+
+/obj/item/gun/kinetic/bolt_action/mosin
+	name = "\improper Mosin–Nagant rifle"
+	desc = "An antiquated rifle from the days of the old Russian Empire, yet it remains a mainstay among sharpshooters; for better or worse."
+	icon = 'icons/obj/items/guns/kinetic64x32.dmi'
+	inhand_image_icon = 'icons/mob/inhand/hand_guns.dmi'
+	wear_image_icon = 'icons/mob/clothing/back.dmi'
+	icon_state = "mosin"
+	item_state = "mosin"
+	wear_state = "mosin"
+	fire_animation = TRUE
+	has_fire_anim_state = TRUE
+	fire_anim_state = "mosin"
+
+	force = MELEE_DMG_RIFLE
+	default_magazine = /obj/item/ammo/bullets/mosin
+	ammo_cats = list(AMMO_RIFLE_762)
+	max_ammo_capacity = 5
+	c_flags = ONBACK
+	slowdown = 5
+	slowdown_time = 5
+	can_dual_wield = 0
+	two_handed = TRUE
+	w_class = W_CLASS_BULKY
+	shoot_delay = 1 SECOND
+
+	HELP_MESSAGE_OVERRIDE({"To cycle another round, the bolt must be unlocked to eject the previously fired cartridge and subsequently locked to \
+							load the next round. The bolt can be locked and unlocked by using the weapon in-hand."})
+
+	New()
+		src.ammo = new src.default_magazine
+		set_current_projectile(new/datum/projectile/bullet/mosin)
+		..()
+
+	setupProperties()
+		..()
+		setProperty("carried_movespeed", 0.8)
+
+#undef BOLT_UNLOCKED
+#undef BOLT_LOCKED

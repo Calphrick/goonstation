@@ -62,6 +62,7 @@
 
 #define AMMO_AUTO_556 "auto_5.56mm"
 #define AMMO_AUTO_762 "auto_7.62mm" //7.62x39, not fullsize like 308
+#define AMMO_RIFLE_762 "rifle_762" // 7.62x54mmR, used by the Mosin-Nagant and the PKM.
 #define AMMO_SMG_9MM "auto_9mm"
 
 #define AMMO_9MM_ALL AMMO_SMG_9MM, AMMO_PISTOL_9MM_ALL, AMMO_TRANQ_9MM
