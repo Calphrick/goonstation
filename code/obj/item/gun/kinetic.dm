@@ -3744,7 +3744,7 @@ ABSTRACT_TYPE(/obj/item/gun/kinetic/bolt_action) //Future addition: make the OHR
 
 /obj/item/gun/kinetic/bolt_action/mannlicher
 	name = "\improper Mannlicher M1895"
-	desc = "A rifle from the twilight years of the Austrian Empire. Still in use for its high rate of fire compared to other bolt actions."
+	desc = "A rifle from the twilight years of the Austrian Empire. Still in use for its high rate of fire compared to other bolt-actions."
 	icon = 'icons/obj/items/guns/kinetic64x32.dmi'
 	inhand_image_icon = 'icons/mob/inhand/hand_guns.dmi'
 	wear_image_icon = 'icons/mob/clothing/back.dmi'
