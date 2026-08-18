@@ -3706,7 +3706,7 @@ ABSTRACT_TYPE(/obj/item/gun/kinetic/bolt_action) //Future addition: make the OHR
 		src.UpdateIcon()
 
 /obj/item/gun/kinetic/bolt_action/mosin
-	name = "Mosin–Nagant rifle"
+	name = "\improper Mosin–Nagant rifle"
 	desc = "An antiquated rifle from the days of the old Russian Empire, yet it remains a mainstay among sharpshooters; for better or worse."
 	icon = 'icons/obj/items/guns/kinetic64x32.dmi'
 	inhand_image_icon = 'icons/mob/inhand/hand_guns.dmi'
@@ -3743,7 +3743,7 @@ ABSTRACT_TYPE(/obj/item/gun/kinetic/bolt_action) //Future addition: make the OHR
 		setProperty("carried_movespeed", 0.8)
 
 /obj/item/gun/kinetic/bolt_action/mannlicher
-	name = "Mannlicher M1895"
+	name = "\improper Mannlicher M1895"
 	desc = "A rifle from the twilight years of the Austrian Empire. Still in use for its high rate of fire compared to other bolt actions."
 	icon = 'icons/obj/items/guns/kinetic64x32.dmi'
 	inhand_image_icon = 'icons/mob/inhand/hand_guns.dmi'
