@@ -2568,3 +2568,20 @@ ABSTRACT_TYPE(/datum/projectile/bullet/homing/rocket)
 			var/turf/target = get_edge_target_turf(hit, dirflag)
 			M.throw_at(target, 1, 3, throw_type = THROW_GUNIMPACT)
 		..()
+
+/datum/projectile/bullet/mannlicher
+	name = "bullet"
+	damage = 50
+	icon_state = "sniper_bullet"
+	damage_type = D_PIERCING
+	armor_ignored = 0.5
+	hit_type = DAMAGE_STAB
+	implanted = /obj/item/implant/projectile/bullet_308
+	shot_sound = 'sound/weapons/gyrojet.ogg'
+	shot_volume = 50
+	dissipation_delay = 10
+	dissipation_rate = 0
+	projectile_speed = 70
+	max_range = 100
+	casing = /obj/item/casing/rifle_loud
+	impact_image_state = "bhole-small"

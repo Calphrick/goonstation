@@ -3706,7 +3706,7 @@ ABSTRACT_TYPE(/obj/item/gun/kinetic/bolt_action) //Future addition: make the OHR
 		src.UpdateIcon()
 
 /obj/item/gun/kinetic/bolt_action/mosin
-	name = "\improper Mosin–Nagant rifle"
+	name = "Mosin–Nagant rifle"
 	desc = "An antiquated rifle from the days of the old Russian Empire, yet it remains a mainstay among sharpshooters; for better or worse."
 	icon = 'icons/obj/items/guns/kinetic64x32.dmi'
 	inhand_image_icon = 'icons/mob/inhand/hand_guns.dmi'
@@ -3741,6 +3741,40 @@ ABSTRACT_TYPE(/obj/item/gun/kinetic/bolt_action) //Future addition: make the OHR
 	setupProperties()
 		..()
 		setProperty("carried_movespeed", 0.8)
+
+/obj/item/gun/kinetic/bolt_action/mannlicher
+	name = "Mannlicher M1895"
+	desc = "A rifle from the twilight years of the Austrian Empire. Still in use for its high rate of fire compared to other bolt actions."
+	icon = 'icons/obj/items/guns/kinetic64x32.dmi'
+	inhand_image_icon = 'icons/mob/inhand/hand_guns.dmi'
+	wear_image_icon = 'icons/mob/clothing/back.dmi'
+	icon_state = "mannlicher"
+	item_state = "mosin"
+	wear_state = "mosin"
+	fire_animation = TRUE
+	has_fire_anim_state = TRUE
+	fire_anim_state = "mannlicher"
+
+	force = MELEE_DMG_RIFLE
+	default_magazine = /obj/item/ammo/bullets/mannlicher
+	ammo_cats = list(AMMO_RIFLE_850)
+	max_ammo_capacity = 5
+	c_flags = ONBACK
+	slowdown = 5
+	slowdown_time = 5
+	can_dual_wield = 0
+	two_handed = TRUE
+	w_class = W_CLASS_BULKY
+	shoot_delay = 0.8 SECOND
+
+	HELP_MESSAGE_OVERRIDE({"To cycle another round, the bolt must be unlocked to eject the previously fired cartridge and subsequently locked to \
+							load the next round. The bolt can be locked and unlocked by using the weapon in-hand."})
+
+	New()
+		src.ammo = new src.default_magazine
+		set_current_projectile(new/datum/projectile/bullet/mannlicher)
+		..()
+
 
 #undef BOLT_UNLOCKED
 #undef BOLT_LOCKED

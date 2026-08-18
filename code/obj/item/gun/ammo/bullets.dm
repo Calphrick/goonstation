@@ -480,6 +480,20 @@
 	icon_short = "mosin_clip"
 	icon_empty = "mosin_clip_empty"
 
+/obj/item/ammo/bullets/mannlicher
+	sname = "8x50mmR"
+	name = "8x50mmR en-bloc clip"
+	desc = "An en-bloc clip of 8x50mmR Mannlicher."
+	ammo_type = new/datum/projectile/bullet/mannlicher
+	icon = 'icons/obj/items/ammo.dmi'
+	icon_state = "mosin_clip-5"
+	amount_left = 5
+	max_amount = 5
+	ammo_cat = AMMO_RIFLE_850
+	icon_dynamic = 1
+	icon_short = "mosin_clip"
+	icon_empty = "mosin_clip_empty"
+
 /obj/item/ammo/bullets/tranq_darts
 	sname = ".308 Tranquilizer"
 	name = ".308 tranquilizer darts"
