@@ -2535,7 +2535,7 @@ ABSTRACT_TYPE(/datum/projectile/bullet/homing/rocket)
 
 /datum/projectile/bullet/mosin
 	name = "bullet"
-	damage = 80
+	damage = 50
 	icon_state = "sniper_bullet"
 	damage_type = D_PIERCING
 	armor_ignored = 0.66
@@ -2549,9 +2549,6 @@ ABSTRACT_TYPE(/datum/projectile/bullet/homing/rocket)
 	max_range = 100
 	casing = /obj/item/casing/rifle_loud
 	impact_image_state = "bhole-small"
-
-	on_launch(obj/projectile/O)
-		O.AddComponent(/datum/component/sniper_wallpierce, 3, 20)
 
 	on_hit(atom/hit, dirflag, obj/projectile/P)
 		if (ismob(hit))
@@ -2585,3 +2582,6 @@ ABSTRACT_TYPE(/datum/projectile/bullet/homing/rocket)
 	max_range = 100
 	casing = /obj/item/casing/rifle_loud
 	impact_image_state = "bhole-small"
+
+	on_launch(obj/projectile/O)
+		O.AddComponent(/datum/component/sniper_wallpierce, 1) //Will pierce one wall
