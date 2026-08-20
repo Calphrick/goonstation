@@ -3707,7 +3707,7 @@ ABSTRACT_TYPE(/obj/item/gun/kinetic/bolt_action) //Future addition: make the OHR
 
 /obj/item/gun/kinetic/bolt_action/mosin
 	name = "\improper Mosin–Nagant rifle"
-	desc = "An antiquated rifle from the days of the old Russian Empire. The stopping power is enough to temporarily slow targets."
+	desc = "An antiquated rifle from the days of the old Russian Empire. The bayonet at the end allows you to poke at anyone who gets too close for comfort."
 	icon = 'icons/obj/items/guns/kinetic64x32.dmi'
 	inhand_image_icon = 'icons/mob/inhand/hand_guns.dmi'
 	wear_image_icon = 'icons/mob/clothing/back.dmi'
@@ -3718,7 +3718,8 @@ ABSTRACT_TYPE(/obj/item/gun/kinetic/bolt_action) //Future addition: make the OHR
 	has_fire_anim_state = TRUE
 	fire_anim_state = "mosin"
 
-	force = MELEE_DMG_RIFLE
+	force = MELEE_DMG_LARGE //more damage because of bayonet
+	hit_type = DAMAGE_STAB
 	default_magazine = /obj/item/ammo/bullets/mosin
 	ammo_cats = list(AMMO_RIFLE_762)
 	max_ammo_capacity = 5
@@ -3744,7 +3745,7 @@ ABSTRACT_TYPE(/obj/item/gun/kinetic/bolt_action) //Future addition: make the OHR
 
 /obj/item/gun/kinetic/bolt_action/mannlicher
 	name = "\improper Mannlicher M1895"
-	desc = "A rifle from the twilight years of the Austrian Empire. The unique reciever gives the bullet enough power to punch through weak cover."
+	desc = "A rifle from the twilight years of the Austrian Empire. The unique straight-pull bolt gives it a higher rate of fire."
 	icon = 'icons/obj/items/guns/kinetic64x32.dmi'
 	inhand_image_icon = 'icons/mob/inhand/hand_guns.dmi'
 	wear_image_icon = 'icons/mob/clothing/back.dmi'

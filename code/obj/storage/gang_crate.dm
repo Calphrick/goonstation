@@ -871,6 +871,10 @@ ABSTRACT_TYPE(/obj/loot_spawner/random/short)
 					spawn_item(C,I,ammoSelected, scale_x=0.5,scale_y=0.5)
 				else if (ispath(ammoSelected, /obj/item/ammo/bullets/nine_mm_surplus))
 					spawn_item(C,I,ammoSelected, scale_y=0.725)
+				else if (ispath(ammoSelected, /obj/item/ammo/bullets/mosin))
+					spawn_item(C,I,ammoSelected, scale_x=0.8,scale_y=0.75)
+				else if (ispath(ammoSelected, /obj/item/ammo/bullets/mannlicher))
+					spawn_item(C,I,ammoSelected, scale_x=0.8,scale_y=0.75)
 				else if (ispath(ammoSelected,/obj/item/ammo/bullets/flintlock/single))
 					var/obj/item/ammo/bullets/newAmmo = spawn_item(C,I,ammoSelected, rot=-45,scale_x=0.8,scale_y=0.8)
 					newAmmo.amount = 3
@@ -1145,6 +1149,18 @@ ABSTRACT_TYPE(/obj/loot_spawner/random/long)
 
 			spawn_item(C,I,/obj/item/chem_grenade/flashbang,off_x=5,off_y=-4,rot=90,scale_x=0.8,scale_y=0.8)
 			spawn_item(C,I,/obj/item/chem_grenade/flashbang,off_x=8,off_y=-4,rot=90,scale_x=0.8,scale_y=0.8)
+
+	mosin
+		tier = GANG_CRATE_GUN
+		spawn_loot(var/C,var/datum/loot_spawner_info/I)
+			var/obj/item/gun/kinetic/gun = spawn_item(C,I,/obj/item/gun/kinetic/bolt_action/mosin,off_x=-8,off_y=0,scale_x=0.7,scale_y=0.7)
+			I.parent?.tag_list("Ammo_Allowed", gun.default_magazine)
+
+	mannlicher
+		tier = GANG_CRATE_GUN
+		spawn_loot(var/C,var/datum/loot_spawner_info/I)
+			var/obj/item/gun/kinetic/gun = spawn_item(C,I,/obj/item/gun/kinetic/bolt_action/mannlicher,off_x=-8,off_y=0,scale_x=0.7,scale_y=0.7)
+			I.parent?.tag_list("Ammo_Allowed", gun.default_magazine)
 
 	// GANG_CRATE_GEAR
 	glasses

@@ -896,18 +896,6 @@ ABSTRACT_TYPE(/datum/commodity/magpie/sell)
 		comtype = /obj/item/gun/kinetic/survival_rifle
 		price = 1000
 
-	mosin
-		comname = "Russian Surplus Rifle"
-		desc = "An old bolt-action obtained from Russian military surplus."
-		comtype = /obj/item/gun/kinetic/bolt_action/mosin
-		price = 1500
-
-	mannlicher
-		comname = "Austrian Surplus Rifle"
-		desc = "An old bolt-action obtained from Austrian military surplus."
-		comtype = /obj/item/gun/kinetic/bolt_action/mannlicher
-		price = 1500
-
 	bullets_22
 		comname = ".22 magazine"
 		desc = "A small .22 magazine for kinetic firearms."
@@ -935,20 +923,6 @@ ABSTRACT_TYPE(/datum/commodity/magpie/sell)
 		comtype = /obj/item/ammo/bullets/bullet_9mm
 		price = 399
 		amount = 10
-
-	bullets_mosin
-		comname = "7.62x54mmR clip"
-		desc = "A stripper clip of 7.62x54mmR for use in Imperial-era Russian firearms."
-		comtype = /obj/item/ammo/bullets/mosin
-		price = 800
-		amount = 5
-
-	bullets_mannlicher
-		comname = "8x50mmR clip"
-		desc = "An en-bloc clip of 8x50mmR for use in Imperial-era Austrian firearms."
-		comtype = /obj/item/ammo/bullets/mannlicher
-		price = 800
-		amount = 5
 
 #ifndef RP_MODE
 	rifle_556

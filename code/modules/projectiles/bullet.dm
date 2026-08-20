@@ -2535,13 +2535,13 @@ ABSTRACT_TYPE(/datum/projectile/bullet/homing/rocket)
 
 /datum/projectile/bullet/mosin
 	name = "bullet"
-	damage = 50
+	damage = 60
 	icon_state = "sniper_bullet"
 	damage_type = D_PIERCING
-	armor_ignored = 0.66
+	armor_ignored = 0.5
 	hit_type = DAMAGE_STAB
 	implanted = /obj/item/implant/projectile/bullet_308
-	shot_sound = 'sound/weapons/railgun.ogg'
+	shot_sound = 'sound/weapons/gyrojet.ogg'
 	shot_volume = 50
 	dissipation_delay = 10
 	dissipation_rate = 0
@@ -2550,28 +2550,12 @@ ABSTRACT_TYPE(/datum/projectile/bullet/homing/rocket)
 	casing = /obj/item/casing/rifle_loud
 	impact_image_state = "bhole-small"
 
-	on_hit(atom/hit, dirflag, obj/projectile/P)
-		if (ismob(hit))
-			var/mob/M = hit
-			if(ishuman(hit))
-				var/mob/living/carbon/human/H = hit
-				if(power > 40)
-#ifdef USE_STAMINA_DISORIENT
-					H.do_disorient(50, knockdown = 2 SECONDS, stunned = 2 SECONDS, disorient = 0, remove_stamina_below_zero = FALSE)
-#else
-					H.changeStatus("stunned", 4 SECONDS)
-					H.changeStatus("knockdown", 3 SECONDS)
-#endif
-			var/turf/target = get_edge_target_turf(hit, dirflag)
-			M.throw_at(target, 1, 3, throw_type = THROW_GUNIMPACT)
-		..()
-
 /datum/projectile/bullet/mannlicher
 	name = "bullet"
-	damage = 50
+	damage = 60
 	icon_state = "sniper_bullet"
 	damage_type = D_PIERCING
-	armor_ignored = 0.5
+	armor_ignored = 0.8 //more pierce than mosin
 	hit_type = DAMAGE_STAB
 	implanted = /obj/item/implant/projectile/bullet_308
 	shot_sound = 'sound/weapons/gyrojet.ogg'
@@ -2582,6 +2566,3 @@ ABSTRACT_TYPE(/datum/projectile/bullet/homing/rocket)
 	max_range = 100
 	casing = /obj/item/casing/rifle_loud
 	impact_image_state = "bhole-small"
-
-	on_launch(obj/projectile/O)
-		O.AddComponent(/datum/component/sniper_wallpierce, 1) //Will pierce one wall
